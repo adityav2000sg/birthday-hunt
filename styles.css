@@ -93,8 +93,14 @@ h1, h2 {
   color: #d6336c;
 }
 
-.ring-pop {
-  margin-top: 10px;
-  width: 150px;
-  height: auto;
+.love-animation {
+  text-align: center;
+  font-size: 2rem;
+  color: #ff4d6d;
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
