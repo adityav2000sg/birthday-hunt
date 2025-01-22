@@ -4,7 +4,7 @@ const ctx = confettiCanvas.getContext('2d');
 
 const clues = [
   {
-    clue: "Start your day with this: Who’s the first person to wish you?",
+    clue: "She’s the most loved person in the world today! But… what makes her so special?",
     answer: "Baby, you're the kindest soul I've ever known. Your ability to light up any room is amazing. You're the most incredible person I know, and I love you!",
     image: ""
   },
