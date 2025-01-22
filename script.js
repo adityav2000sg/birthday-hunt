@@ -69,9 +69,18 @@ function loadClues() {
     const clueBtn = document.createElement('button');
     clueBtn.classList.add('clue-btn');
     clueBtn.textContent = `Clue ${index + 1}`;
-    clueBtn.onclick = () => revealAnswer(index);
+    clueBtn.onclick = () => revealClue(index);
     cluesContainer.appendChild(clueBtn);
   });
+}
+
+function revealClue(index) {
+  const answerContainer = document.getElementById('answer-container');
+  const clue = clues[index];
+  answerContainer.innerHTML = `
+    <h3>${clue.clue}</h3>
+    <button class="reveal-answer-btn" onclick="revealAnswer(${index})">Reveal Answer</button>
+  `;
 }
 
 function revealAnswer(index) {
@@ -86,15 +95,21 @@ function revealAnswer(index) {
       <div class="special-question">
         <h2>Will you do me the honor of being my girlfriend all over again? ❤️</h2>
         <button class="yes-btn" onclick="showLoveAnimation()">Yes</button>
-        <button class="no-btn">No</button>
+        <button class="no-btn" onclick="showNoMessage()">No</button>
       </div>
     `;
   }
 }
 
 function showLoveAnimation() {
-  document.body.innerHTML = '<div class="love-animation">❤️❤️❤️ Love Forever ❤️❤️❤️</div>';
+  document.body.innerHTML = '<div class="love-animation">You’ve made me the happiest person ever! ❤️❤️❤️</div>';
   document.body.style.animation = "heartPulse 2s infinite";
+  launchConfetti();
+}
+
+function showNoMessage() {
+  const answerContainer = document.getElementById('answer-container');
+  answerContainer.innerHTML = '<h3>I’ll ask again tomorrow! ❤️</h3>';
 }
 
 function launchConfetti() {
@@ -102,7 +117,7 @@ function launchConfetti() {
   confettiCanvas.height = window.innerHeight;
 
   const confettiColors = ['#ff4d6d', '#ff748c', '#ff9aa2', '#ffd1dc'];
-  const confettiPieces = Array.from({ length: 200 }, () => ({
+  const confettiPieces = Array.from({ length: 300 }, () => ({
     x: Math.random() * confettiCanvas.width,
     y: Math.random() * confettiCanvas.height - confettiCanvas.height,
     size: Math.random() * 10 + 5,
