@@ -8,23 +8,23 @@
 </head>
 <body>
   <div class="container">
-    <!-- Heart Animation -->
-    <div class="heart-container">
-      <div class="heart"></div>
-      <h1>Happy Birthday, My Love!</h1>
+    <!-- Landing Page -->
+    <div id="landing-page" class="landing-page">
+      <button class="start-btn" onclick="startHunt()">Click Me!</button>
     </div>
 
     <!-- Scavenger Hunt Section -->
-    <div class="hunt-section">
-      <h2>Your Scavenger Hunt Begins Here</h2>
-      <div class="clues">
-        <button class="clue" onclick="revealSurprise(1)">Clue 1</button>
-        <button class="clue" onclick="revealSurprise(2)">Clue 2</button>
-        <button class="clue" onclick="revealSurprise(3)">Clue 3</button>
-        <button class="clue" onclick="revealSurprise(4)">Clue 4</button>
+    <div id="hunt-section" class="hunt-section hidden">
+      <h1>Happy Birthday, Anousha!</h1>
+      <h2>Your Birthday Scavenger Hunt</h2>
+      <div id="clues-container" class="clues-container">
+        <!-- Dynamically load the clues -->
       </div>
-      <div id="surprise-text" class="surprise-text"></div>
+      <div id="answer-container" class="answer-container"></div>
     </div>
+
+    <!-- Confetti Animation -->
+    <canvas id="confetti"></canvas>
   </div>
 
   <script src="script.js"></script>
