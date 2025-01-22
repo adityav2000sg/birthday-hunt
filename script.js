@@ -4,29 +4,55 @@ const ctx = confettiCanvas.getContext('2d');
 
 const clues = [
   {
-    question: "She’s the most loved person in the world today! But… what makes her so special?",
-    answer: "Baby, you're the kindest soul I've ever known. Your ability to light up any room when you walk into it is absolutely beautiful. You're the most incredible person I know, and I love you.",
+    clue: "Start your day with this: Who’s the first person to wish you?",
+    answer: "Baby, you're the kindest soul I've ever known. Your ability to light up any room is amazing. You're the most incredible person I know, and I love you!",
     image: ""
   },
   {
-    question: "Where would you go if you could spend this birthday anywhere in the world?",
+    clue: "Where would you go if you could spend this birthday anywhere in the world?",
     answer: "Turkey, Antalya. A serene, picturesque getaway that’s perfect for you.",
     image: "Antalya.jpg"
   },
   {
-    question: "What’s your ultimate guilty pleasure when it comes to sweet treats?",
+    clue: "What’s your ultimate guilty pleasure when it comes to sweet treats?",
     answer: "Tiramisu or Red Velvet! Two treats as sweet as you.",
     image: "Tiramisu_and_Red_Velvet.jpg"
   },
   {
-    question: "Your stunning style always amazes me. What colors and looks define your elegance?",
+    clue: "Your stunning style always amazes me. What colors and looks define your elegance?",
     answer: "Absolutely stunning! Neutral tones and elegant vibes, just like this picture.",
     image: "Anousha_Stunning.jpg"
   },
   {
-    question: "If she could watch one movie on repeat, what would it be?",
+    clue: "If you could watch one movie on repeat, what would it be?",
     answer: "The Proposal! A timeless romantic comedy that makes her smile every time.",
     image: "The_Proposal.jpg"
+  },
+  {
+    clue: "If we could create something together for your birthday, what would it be?",
+    answer: "Art that reflects your heart. Something meaningful and creative!",
+    image: ""
+  },
+  {
+    clue: "What’s one activity that makes any day feel special for you?",
+    answer: "Cooking or enjoying cozy moments together, with hugs and laughs!",
+    image: ""
+  },
+  {
+    clue: "What kind of gift do you treasure the most?",
+    answer: "Something handmade, meaningful, and full of effort!",
+    image: ""
+  },
+  {
+    clue: "What’s the one thing that makes your birthday magical?",
+    answer: "Confetti, laughter, and love all around!",
+    image: ""
+  },
+  {
+    clue: "Your final surprise is here. Guess what’s coming?",
+    answer: "A delicious tiramisu and... a special question!",
+    image: "Tiramisu_and_Red_Velvet.jpg",
+    special: true
   }
 ];
 
@@ -50,10 +76,25 @@ function loadClues() {
 
 function revealAnswer(index) {
   const answerContainer = document.getElementById('answer-container');
+  const clue = clues[index];
   answerContainer.innerHTML = `
-    <h3>${clues[index].answer}</h3>
-    ${clues[index].image ? `<img src="${clues[index].image}" alt="Clue Image" class="clue-image">` : ''}
+    <h3>${clue.answer}</h3>
+    ${clue.image ? `<img src="${clue.image}" alt="Clue Image" class="clue-image">` : ''}
   `;
+  if (clue.special) {
+    answerContainer.innerHTML += `
+      <div class="special-question">
+        <h2>Will you do me the honor of being my girlfriend all over again? ❤️</h2>
+        <button class="yes-btn" onclick="showLoveAnimation()">Yes</button>
+        <button class="no-btn">No</button>
+      </div>
+    `;
+  }
+}
+
+function showLoveAnimation() {
+  document.body.innerHTML = '<div class="love-animation">❤️❤️❤️ Love Forever ❤️❤️❤️</div>';
+  document.body.style.animation = "heartPulse 2s infinite";
 }
 
 function launchConfetti() {
