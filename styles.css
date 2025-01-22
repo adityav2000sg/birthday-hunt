@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom right, #ffe8e8, #fff3f3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+}
+
+.heart-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.heart {
+  width: 100px;
+  height: 100px;
+  background-color: #ff4d6d;
+  position: relative;
+  margin: 0 auto;
+  transform: rotate(-45deg);
+  animation: pulse 1.5s infinite;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  width: 100px;
+  height: 100px;
+  background-color: #ff4d6d;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.heart:before {
+  top: -50px;
+  left: 0;
+}
+
+.heart:after {
+  top: 0;
+  left: 50px;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1) rotate(-45deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(-45deg);
+  }
+}
+
+.hunt-section {
+  margin-top: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #ff4d6d;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.clues {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.clue {
+  padding: 10px 20px;
+  background-color: #ff9aa2;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.clue:hover {
+  background-color: #ff748c;
+}
+
+.surprise-text {
+  font-size: 1.2rem;
+  color: #444;
+  margin-top: 10px;
+  visibility: hidden;
+}
